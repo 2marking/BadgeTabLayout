@@ -1,18 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.example.badgetablayout_android_2marking.BadgeTabLayout.Custom2markingTabLayout
+            android:id="@+id/ftl_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fTabIndicatorColor="@color/colorPrimary"
+            app:fTabMode="fixed"
+            app:fTabSelectedTextBold="true"
+            app:fTabSelectedTextColor="@android:color/black"
+            app:fTabTextColor="@android:color/darker_gray"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_1"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"/>
+
+        <com.example.badgetablayout_android_2marking.BadgeTabLayout.Custom2markingTabLayout
+            android:id="@+id/ftl_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fTabIndicatorColor="@color/colorPrimary"
+            app:fTabIndicatorFullWidth="false"
+            app:fTabMode="fixed"
+            app:fTabSelectedTextColor="@android:color/black"
+            app:fTabTextColor="@android:color/darker_gray"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_2"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"/>
+
+        <com.example.badgetablayout_android_2marking.BadgeTabLayout.Custom2markingTabLayout
+            android:id="@+id/ftl_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fTabIndicatorColor="@android:color/holo_red_light"
+            app:fTabIndicatorFixedWidth="20dp"
+            app:fTabMode="auto"
+            app:fTabSelectedTextColor="@android:color/black"
+            app:fTabTextColor="@android:color/darker_gray"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_3"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_add_badge"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="添加Badge"/>
+
+            <Button
+                android:id="@+id/btn_remove_badge"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="移除Badge"/>
+
+            <Button
+                android:id="@+id/btn_change_number"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="改变数值"/>
+
+        </LinearLayout>
+
+        <com.example.badgetablayout_android_2marking.BadgeTabLayout.Custom2markingTabLayout
+            android:id="@+id/ftl_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fTabIndicatorColor="@android:color/holo_red_light"
+            app:fTabIndicatorFixedWidth="20dp"
+            app:fTabTextSize="14sp"
+            app:fTabTextIconGap="0dp"
+            app:fTabMode="scrollable"
+            app:fTabSelectedTextColor="@android:color/black"
+            app:fTabTextColor="@android:color/darker_gray"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

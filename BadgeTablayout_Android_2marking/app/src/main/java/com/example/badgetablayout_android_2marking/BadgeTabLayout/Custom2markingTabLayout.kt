@@ -43,10 +43,10 @@ import kotlin.math.max
 import kotlin.math.min
 
 @ViewPager.DecorView
-class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ctx, attrs) {
+class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ctx, attrs) {
 
-  private val tabs = mutableListOf<FuckTab>()
-  private var selectedTab: FuckTab? = null
+  private val tabs = mutableListOf<Custom2markingTab>()
+  private var selectedTab: Custom2markingTab? = null
   private val tabViewContentBounds = RectF()
 
   private val slidingTabIndicator = SlidingTabIndicator(ctx)
@@ -281,19 +281,19 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
     }
   }
 
-  fun addTab(tab: FuckTab) {
+  fun addTab(tab: Custom2markingTab) {
     addTab(tab, tabs.isEmpty())
   }
 
-  fun addTab(tab: FuckTab, position: Int) {
+  fun addTab(tab: Custom2markingTab, position: Int) {
     addTab(tab, position, tabs.isEmpty())
   }
 
-  fun addTab(tab: FuckTab, setSelected: Boolean) {
+  fun addTab(tab: Custom2markingTab, setSelected: Boolean) {
     addTab(tab, tabs.size, setSelected)
   }
 
-  fun addTab(tab: FuckTab, position: Int, setSelected: Boolean) {
+  fun addTab(tab: Custom2markingTab, position: Int, setSelected: Boolean) {
     if (tab.parent != this) {
       throw  IllegalArgumentException("Tab belongs to a different TabLayout.")
     }
@@ -305,7 +305,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
     }
   }
 
-  private fun addTabFromItemView(item: FuckTabItem) {
+  private fun addTabFromItemView(item: Custom2markingTabItem) {
     val tab = newTab()
     if (item.text != null) {
       tab.text = item.text
@@ -330,32 +330,32 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
     selectedListeners.clear()
   }
 
-  fun newTab(): FuckTab {
+  fun newTab(): Custom2markingTab {
     val tab = createTabFromPool()
     tab.parent = this
     tab.view = createTabView(tab)
     return tab
   }
 
-  protected fun createTabFromPool(): FuckTab {
+  protected fun createTabFromPool(): Custom2markingTab {
     var tab = tabPool.acquire()
     if (tab == null) {
-      tab = FuckTab()
+      tab = Custom2markingTab()
     }
     return tab
   }
 
-  protected fun releaseFromTabPool(tab: FuckTab): Boolean {
+  protected fun releaseFromTabPool(tab: Custom2markingTab): Boolean {
     return tabPool.release(tab)
   }
 
   fun getTabCount(): Int = tabs.size
 
-  fun getTabAt(index: Int): FuckTab? = if (index < 0 || index >= getTabCount()) null else tabs[index]
+  fun getTabAt(index: Int): Custom2markingTab? = if (index < 0 || index >= getTabCount()) null else tabs[index]
 
   fun getSelectedTabPosition(): Int = selectedTab?.position ?: -1
 
-  fun removeTab(tab: FuckTab) {
+  fun removeTab(tab: Custom2markingTab) {
     if (tab.parent != this) {
       throw IllegalArgumentException("Tab does not belong to this TabLayout.")
     }
@@ -558,7 +558,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
     tabs.forEach { it.updateView() }
   }
 
-  private fun createTabView(tab: FuckTab): FuckTabView {
+  private fun createTabView(tab: Custom2markingTab): FuckTabView {
     var tabView = tabViewPool.acquire()
     if (tabView == null) {
       tabView = FuckTabView(context)
@@ -569,7 +569,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
     return tabView
   }
 
-  private fun configureTab(tab: FuckTab, position: Int) {
+  private fun configureTab(tab: Custom2markingTab, position: Int) {
     tab.position = position
     tabs.add(position, tab)
 
@@ -578,7 +578,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
     }
   }
 
-  private fun addTabView(tab: FuckTab) {
+  private fun addTabView(tab: Custom2markingTab) {
     slidingTabIndicator.addView(tab.view, tab.position, createLayoutParamsForTabs())
   }
 
@@ -603,7 +603,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
   }
 
   private fun addViewInternal(child: View?) {
-    if (child is FuckTabItem) {
+    if (child is Custom2markingTabItem) {
       addTabFromItemView(child)
     } else {
       throw IllegalArgumentException("Only TabItem instances can be added to TabLayout")
@@ -682,7 +682,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
   }
 
   private fun animateToTab(newPosition: Int) {
-    if (newPosition == FuckTab.INVALID_POSITION) {
+    if (newPosition == Custom2markingTab.INVALID_POSITION) {
       return
     }
 
@@ -730,7 +730,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
     }
   }
 
-  internal fun selectTab(tab: FuckTab?, updateIndicator: Boolean = true) {
+  internal fun selectTab(tab: Custom2markingTab?, updateIndicator: Boolean = true) {
     val currentTab = selectedTab
 
     if (currentTab == tab) {
@@ -739,14 +739,14 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
         animateToTab(tab.position)
       }
     } else {
-      val newPosition = tab?.position ?: FuckTab.INVALID_POSITION
+      val newPosition = tab?.position ?: Custom2markingTab.INVALID_POSITION
       if (updateIndicator) {
-        if ((currentTab == null || currentTab.position == android.app.ActionBar.Tab.INVALID_POSITION) && newPosition != FuckTab.INVALID_POSITION) {
+        if ((currentTab == null || currentTab.position == android.app.ActionBar.Tab.INVALID_POSITION) && newPosition != Custom2markingTab.INVALID_POSITION) {
           setScrollPosition(newPosition, 0f, true)
         } else {
           animateToTab(newPosition)
         }
-        if (newPosition != FuckTab.INVALID_POSITION) {
+        if (newPosition != Custom2markingTab.INVALID_POSITION) {
           setSelectedTabView(newPosition)
         }
       }
@@ -761,15 +761,15 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
     }
   }
 
-  private fun dispatchTabSelected(tab: FuckTab) {
+  private fun dispatchTabSelected(tab: Custom2markingTab) {
     selectedListeners.forEach { it.onTabSelected(tab) }
   }
 
-  private fun dispatchTabUnselected(tab: FuckTab) {
+  private fun dispatchTabUnselected(tab: Custom2markingTab) {
     selectedListeners.forEach { it.onTabUnselected(tab) }
   }
 
-  private fun dispatchTabReselected(tab: FuckTab) {
+  private fun dispatchTabReselected(tab: Custom2markingTab) {
     selectedListeners.forEach { it.onTabReselected(tab) }
   }
 
@@ -882,7 +882,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
 
   inner class FuckTabView(ctx: Context) : LinearLayout(ctx) {
 
-    var tab: FuckTab? = null
+    var tab: Custom2markingTab? = null
       set(value) {
         field = value
         update()
@@ -943,7 +943,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
         background = contentDrawable
       }
       ViewCompat.setBackground(this, background)
-      this@FuckTabLayout.invalidate()
+      this@Custom2markingTabLayout.invalidate()
     }
 
     fun drawBackground(canvas: Canvas) {
@@ -962,7 +962,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
 
       if (changed) {
         invalidate()
-        this@FuckTabLayout.invalidate()
+        this@Custom2markingTabLayout.invalidate()
       }
     }
 
@@ -1513,8 +1513,8 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
             ?: Color.WHITE)) as Int
   }
 
-  class TabLayoutOnPageChangeListener(tabLayout: FuckTabLayout) : OnPageChangeListener {
-    private val tabLayoutRef = WeakReference<FuckTabLayout>(tabLayout)
+  class TabLayoutOnPageChangeListener(tabLayout: Custom2markingTabLayout) : OnPageChangeListener {
+    private val tabLayoutRef = WeakReference<Custom2markingTabLayout>(tabLayout)
     private var previousScrollState = 0
     private var scrollState = 0
 
@@ -1548,13 +1548,13 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
 
   class ViewPagerOnTabSelectedListener(private val viewPager: ViewPager) : OnTabSelectedListener {
 
-    override fun onTabReselected(tab: FuckTab) {}
+    override fun onTabReselected(tab: Custom2markingTab) {}
 
-    override fun onTabSelected(tab: FuckTab) {
+    override fun onTabSelected(tab: Custom2markingTab) {
       viewPager.currentItem = tab.position
     }
 
-    override fun onTabUnselected(tab: FuckTab) {}
+    override fun onTabUnselected(tab: Custom2markingTab) {}
   }
 
   private inner class PagerAdapterObserver : DataSetObserver() {
@@ -1571,7 +1571,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
   private inner class AdapterChangeListener(var autoRefresh: Boolean = false) : ViewPager.OnAdapterChangeListener {
 
     override fun onAdapterChanged(viewPager: ViewPager, oldAdapter: PagerAdapter?, newAdapter: PagerAdapter?) {
-      if (this@FuckTabLayout.viewPager == viewPager) {
+      if (this@Custom2markingTabLayout.viewPager == viewPager) {
         setPagerAdapter(newAdapter, autoRefresh)
       }
     }
@@ -1636,7 +1636,7 @@ class FuckTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ct
 
     private const val ANIMATION_DURATION = 300
 
-    private val tabPool = Pools.SynchronizedPool<FuckTab>(16)
+    private val tabPool = Pools.SynchronizedPool<Custom2markingTab>(16)
   }
 
 }

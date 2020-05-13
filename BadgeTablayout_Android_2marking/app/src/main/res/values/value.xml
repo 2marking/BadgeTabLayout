@@ -9,7 +9,7 @@
 
     <attr name="fuckTabStyle" format="reference"/>
 
-    <declare-styleable name="FuckTabLayout">
+    <declare-styleable name="Custom2markingTabLayout">
         <attr name="fTabIndicatorColor" format="color"/>
         <attr name="fTabIndicatorHeight" format="dimension"/>
         <attr name="fTabContentStart" format="dimension"/>
@@ -61,7 +61,7 @@
         <attr name="fTabUnboundedRipple" format="boolean"/>
     </declare-styleable>
 
-    <declare-styleable name="FuckTabItem">
+    <declare-styleable name="Custom2markingTabItem">
         <attr name="android:text"/>
         <attr name="android:icon"/>
         <attr name="android:layout"/>

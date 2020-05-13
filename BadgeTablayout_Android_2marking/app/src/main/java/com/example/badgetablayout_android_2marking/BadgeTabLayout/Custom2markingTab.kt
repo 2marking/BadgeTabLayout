@@ -5,7 +5,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 
-class FuckTab(var parent: FuckTabLayout? = null, var view: FuckTabLayout.FuckTabView? = null) {
+class Custom2markingTab(var parent: Custom2markingTabLayout? = null, var view: Custom2markingTabLayout.FuckTabView? = null) {
     var tag: String? = null
     var icon: Drawable? = null
         set(value) {
