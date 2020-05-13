@@ -19,14 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        vp_1.adapter = ViewPagerAdapter()
-        ftl_1.setupWithViewPager(vp_1)
-
-        vp_2.adapter = ViewPagerAdapter()
-        ftl_2.setupWithViewPager(vp_2)
-
-        vp_3.adapter = ViewPagerAdapter(12)
-        ftl_3.setupWithViewPager(vp_3)
+        setViewPager()
 
         ftl_2.addDotBadge(0)
 
@@ -83,6 +76,16 @@ class MainActivity : AppCompatActivity() {
             text = "test5"
             icon = getDrawable(R.mipmap.ic_launcher)
         }, false)
+    }
+    fun setViewPager(){
+        vp_1.adapter = ViewPagerAdapter()
+        ftl_1.setupWithViewPager(vp_1)
+
+        vp_2.adapter = ViewPagerAdapter()
+        ftl_2.setupWithViewPager(vp_2)
+
+        vp_3.adapter = ViewPagerAdapter(12)
+        ftl_3.setupWithViewPager(vp_3)
     }
 
     class ViewPagerAdapter(private val count: Int = 5) : PagerAdapter() {
