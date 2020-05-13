@@ -6,7 +6,6 @@ import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 
 class FuckTab(var parent: FuckTabLayout? = null, var view: FuckTabLayout.FuckTabView? = null) {
-
     var tag: String? = null
     var icon: Drawable? = null
         set(value) {
@@ -33,13 +32,9 @@ class FuckTab(var parent: FuckTabLayout? = null, var view: FuckTabLayout.FuckTab
         text = parent?.context?.getString(resId)
     }
 
-    fun select() {
-        parent?.selectTab(this)
-    }
+    fun select() = parent?.selectTab(this)
 
-    fun updateView() {
-        view?.update()
-    }
+    fun updateView() = view?.update()
 
     fun reset() {
         position = INVALID_POSITION
