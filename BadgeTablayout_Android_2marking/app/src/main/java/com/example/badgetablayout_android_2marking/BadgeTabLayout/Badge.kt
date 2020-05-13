@@ -13,26 +13,14 @@ abstract class Badge(protected val color: Int) {
 
     protected val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
-    /**
-     * Badge的宽度.
-     * @return Int
-     */
     abstract fun getMeasureWidth(): Int
-    /**
-     * Badge的高度.
-     * @return Int
-     */
+
     abstract fun getMeasureHeight(): Int
 
     abstract fun draw(cvs: Canvas, drawnRectF: RectF)
 
 }
 
-/**
- * 点.
- * @property radius Float 半径.
- * @constructor
- */
 class DotBadge(color: Int, private val radius: Int) : Badge(color) {
 
     override fun getMeasureWidth(): Int = radius * 2
@@ -46,13 +34,6 @@ class DotBadge(color: Int, private val radius: Int) : Badge(color) {
 
 }
 
-/**
- * 数字.
- * @property textColor Int
- * @property textSize Float
- * @property number Int?
- * @constructor
- */
 class NumberBadge(color: Int, private val textColor: Int, private val textSize: Int) : Badge(color) {
 
     var number: Int? = null
