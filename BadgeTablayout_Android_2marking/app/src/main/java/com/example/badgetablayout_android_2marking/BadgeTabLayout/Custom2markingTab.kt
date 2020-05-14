@@ -45,5 +45,4 @@ class Custom2markingTab(var parent: Custom2markingTabLayout? = null, var view: C
     companion object {
         const val INVALID_POSITION = -1
     }
-
 }

@@ -7,7 +7,6 @@ import android.view.View
 import com.example.badgetablayout_android_2marking.R
 
 class Custom2markingTabItem(ctx: Context, attrs: AttributeSet? = null) : View(ctx, attrs) {
-
     var text:CharSequence? = null
     var icon:Drawable? = null
 

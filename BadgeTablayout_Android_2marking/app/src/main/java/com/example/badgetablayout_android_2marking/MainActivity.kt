@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             icon = getDrawable(R.mipmap.ic_launcher)
         }, false)
     }
+
     fun setViewPager(){
         vp_1.adapter = ViewPagerAdapter()
         ftl_1.setupWithViewPager(vp_1)

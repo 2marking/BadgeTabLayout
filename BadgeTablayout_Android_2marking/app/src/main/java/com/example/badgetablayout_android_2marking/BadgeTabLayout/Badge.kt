@@ -18,7 +18,6 @@ abstract class Badge(protected val color: Int) {
     abstract fun getMeasureHeight(): Int
 
     abstract fun draw(cvs: Canvas, drawnRectF: RectF)
-
 }
 
 class DotBadge(color: Int, private val radius: Int) : Badge(color) {
@@ -35,7 +34,6 @@ class DotBadge(color: Int, private val radius: Int) : Badge(color) {
 }
 
 class NumberBadge(color: Int, private val textColor: Int, private val textSize: Int) : Badge(color) {
-
     var number: Int? = null
         set(value) {
             field = value
@@ -49,11 +47,10 @@ class NumberBadge(color: Int, private val textColor: Int, private val textSize: 
     override fun getMeasureWidth(): Int {
         val measureHeight = getMeasureHeight()
         var measureWidth = paint.measureText(getDrawnStr()).roundToInt()
-        if (measureHeight > measureWidth + 5) {
-            measureWidth = measureHeight
-        } else {
-            measureWidth += measureHeight / 2
-        }
+
+        if (measureHeight > measureWidth + 5) measureWidth = measureHeight
+        else measureWidth += measureHeight / 2
+
         return measureWidth
     }
 
