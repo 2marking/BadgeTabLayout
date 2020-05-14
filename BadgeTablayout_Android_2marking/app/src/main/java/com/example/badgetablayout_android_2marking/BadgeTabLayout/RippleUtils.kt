@@ -11,14 +11,11 @@ import androidx.core.graphics.ColorUtils
 
 
 object RippleUtils {
-
     private val USE_FRAMEWORK_RIPPLE = VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP
-
     private val PRESSED_STATE_SET = intArrayOf(android.R.attr.state_pressed)
     private val HOVERED_FOCUSED_STATE_SET = intArrayOf(android.R.attr.state_hovered, android.R.attr.state_focused)
     private val FOCUSED_STATE_SET = intArrayOf(android.R.attr.state_focused)
     private val HOVERED_STATE_SET = intArrayOf(android.R.attr.state_hovered)
-
     private val SELECTED_PRESSED_STATE_SET = intArrayOf(android.R.attr.state_selected, android.R.attr.state_pressed)
     private val SELECTED_HOVERED_FOCUSED_STATE_SET = intArrayOf(android.R.attr.state_selected, android.R.attr.state_hovered, android.R.attr.state_focused)
     private val SELECTED_FOCUSED_STATE_SET = intArrayOf(android.R.attr.state_selected, android.R.attr.state_focused)

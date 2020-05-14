@@ -12,9 +12,9 @@ class Custom2markingTabItem(ctx: Context, attrs: AttributeSet? = null) : View(ct
 
     init {
         attrs?.let {
-            val a = ctx.obtainStyledAttributes(attrs, R.styleable.FuckTabItem)
-            text = a.getText(R.styleable.FuckTabItem_android_text)
-            icon = a.getDrawable(R.styleable.FuckTabItem_android_icon)
+            val a = ctx.obtainStyledAttributes(attrs, R.styleable.Custom2markingTabItem)
+            text = a.getText(R.styleable.Custom2markingTabItem_android_text)
+            icon = a.getDrawable(R.styleable.Custom2markingTabItem_android_icon)
             a.recycle()
         }
     }

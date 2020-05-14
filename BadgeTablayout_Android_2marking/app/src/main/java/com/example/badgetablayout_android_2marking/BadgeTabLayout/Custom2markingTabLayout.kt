@@ -38,6 +38,7 @@ import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.*
+import com.example.badgetablayout_android_2marking.R
 import java.lang.ref.WeakReference
 import kotlin.math.max
 import kotlin.math.min
