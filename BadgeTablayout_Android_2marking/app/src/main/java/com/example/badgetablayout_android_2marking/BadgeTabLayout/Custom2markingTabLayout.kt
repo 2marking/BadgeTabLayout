@@ -45,7 +45,6 @@ import kotlin.math.min
 
 @ViewPager.DecorView
 class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScrollView(ctx, attrs) {
-
   private val tabs = mutableListOf<Custom2markingTab>()
   private var selectedTab: Custom2markingTab? = null
   private val tabViewContentBounds = RectF()
@@ -179,7 +178,7 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
         LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
     )
 
-    val a = ctx.obtainStyledAttributes(attrs, R.styleable.FuckTabLayout, R.attr.fuckTabStyle, R.style.Widget_Design_FuckTabLayout)
+    val a = ctx.obtainStyledAttributes(attrs, R.styleable.Custom2markingTabLayout, R.attr.fuckTabStyle, R.style.Widget_Design_FuckTabLayout)
 
 //     if (background is ColorDrawable) {
 //       val materialShapeDrawable = MaterialShapeDrawable()
@@ -189,23 +188,23 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
 //       ViewCompat.setBackground(this, materialShapeDrawable)
 //     }
 
-    slidingTabIndicator.setSelectedIndicatorHeight(a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabIndicatorHeight, -1))
-    slidingTabIndicator.setSelectedIndicatorColor(a.getColor(R.styleable.FuckTabLayout_fTabIndicatorColor, 0))
-    tabSelectedIndicator = a.getDrawable(R.styleable.FuckTabLayout_fTabIndicator)
-    tabIndicatorGravity = a.getInt(R.styleable.FuckTabLayout_fTabIndicatorGravity, INDICATOR_GRAVITY_BOTTOM)
-    tabIndicatorFullWidth = a.getBoolean(R.styleable.FuckTabLayout_fTabIndicatorFullWidth, true)
-    tabIndicatorFixedWidth = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabIndicatorFixedWidth, 0)
+    slidingTabIndicator.setSelectedIndicatorHeight(a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabIndicatorHeight, -1))
+    slidingTabIndicator.setSelectedIndicatorColor(a.getColor(R.styleable.Custom2markingTabLayout_fTabIndicatorColor, 0))
+    tabSelectedIndicator = a.getDrawable(R.styleable.Custom2markingTabLayout_fTabIndicator)
+    tabIndicatorGravity = a.getInt(R.styleable.Custom2markingTabLayout_fTabIndicatorGravity, INDICATOR_GRAVITY_BOTTOM)
+    tabIndicatorFullWidth = a.getBoolean(R.styleable.Custom2markingTabLayout_fTabIndicatorFullWidth, true)
+    tabIndicatorFixedWidth = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabIndicatorFixedWidth, 0)
 
-    tabPaddingStart = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabPadding, 0)
+    tabPaddingStart = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabPadding, 0)
     tabPaddingTop = tabPaddingStart
     tabPaddingEnd = tabPaddingStart
     tabPaddingBottom = tabPaddingStart
-    tabPaddingStart = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabPaddingStart, tabPaddingStart)
-    tabPaddingTop = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabPaddingTop, tabPaddingTop)
-    tabPaddingEnd = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabPaddingEnd, tabPaddingEnd)
-    tabPaddingBottom = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabPaddingBottom, tabPaddingBottom)
+    tabPaddingStart = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabPaddingStart, tabPaddingStart)
+    tabPaddingTop = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabPaddingTop, tabPaddingTop)
+    tabPaddingEnd = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabPaddingEnd, tabPaddingEnd)
+    tabPaddingBottom = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabPaddingBottom, tabPaddingBottom)
 
-    tabTextAppearance = a.getResourceId(R.styleable.FuckTabLayout_fTabTextAppearance, R.style.TextAppearance_Design_FuckTab)
+    tabTextAppearance = a.getResourceId(R.styleable.Custom2markingTabLayout_fTabTextAppearance, R.style.TextAppearance_Design_FuckTab)
 
     val ta = context.obtainStyledAttributes(tabTextAppearance, androidx.appcompat.R.styleable.TextAppearance)
     try {
@@ -215,40 +214,40 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
       ta.recycle()
     }
 
-    if (a.hasValue(R.styleable.FuckTabLayout_fTabTextSize)) {
-      tabTextSize = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabTextSize, 0).toFloat()
+    if (a.hasValue(R.styleable.Custom2markingTabLayout_fTabTextSize)) {
+      tabTextSize = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabTextSize, 0).toFloat()
     }
 
-    tabSelectedTextBold = a.getBoolean(R.styleable.FuckTabLayout_fTabSelectedTextBold, false)
-    tabTextIconGap = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabTextIconGap, dpToPx(DEFAULT_GAP_TEXT_ICON))
+    tabSelectedTextBold = a.getBoolean(R.styleable.Custom2markingTabLayout_fTabSelectedTextBold, false)
+    tabTextIconGap = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabTextIconGap, dpToPx(DEFAULT_GAP_TEXT_ICON))
 
 //    tabSelectTextSize = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabSelectedTextSize, tabTextSize.toInt()).toFloat()
 
-    if (a.hasValue(R.styleable.FuckTabLayout_fTabTextColor)) {
-      tabTextColors = getColorStateList(context, a, R.styleable.FuckTabLayout_fTabTextColor)
+    if (a.hasValue(R.styleable.Custom2markingTabLayout_fTabTextColor)) {
+      tabTextColors = getColorStateList(context, a, R.styleable.Custom2markingTabLayout_fTabTextColor)
     }
 
-    if (a.hasValue(R.styleable.FuckTabLayout_fTabSelectedTextColor)) {
-      val selected = a.getColor(R.styleable.FuckTabLayout_fTabSelectedTextColor, 0)
+    if (a.hasValue(R.styleable.Custom2markingTabLayout_fTabSelectedTextColor)) {
+      val selected = a.getColor(R.styleable.Custom2markingTabLayout_fTabSelectedTextColor, 0)
       tabTextColors = createColorStateList(tabTextColors!!.defaultColor, selected)
     }
 
-    tabIconTint = getColorStateList(context, a, R.styleable.FuckTabLayout_fTabIconTint)
-    tabIconTintMode = parseTintMode(a.getInt(R.styleable.FuckTabLayout_fTabIconTintMode, -1), null)
+    tabIconTint = getColorStateList(context, a, R.styleable.Custom2markingTabLayout_fTabIconTint)
+    tabIconTintMode = parseTintMode(a.getInt(R.styleable.Custom2markingTabLayout_fTabIconTintMode, -1), null)
 
-    tabRippleColorStateList = getColorStateList(context, a, R.styleable.FuckTabLayout_fTabRippleColor)
+    tabRippleColorStateList = getColorStateList(context, a, R.styleable.Custom2markingTabLayout_fTabRippleColor)
 
-    tabIndicatorAnimationDuration = a.getInt(R.styleable.FuckTabLayout_fTabIndicatorAnimationDuration, ANIMATION_DURATION)
+    tabIndicatorAnimationDuration = a.getInt(R.styleable.Custom2markingTabLayout_fTabIndicatorAnimationDuration, ANIMATION_DURATION)
 
-    requestedTabMinWidth = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabMinWidth, INVALID_WIDTH)
-    requestedTabMaxWidth = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabMaxWidth, INVALID_WIDTH)
-    tabBackgroundResId = a.getResourceId(R.styleable.FuckTabLayout_fTabBackground, 0)
-    contentInsetStart = a.getDimensionPixelSize(R.styleable.FuckTabLayout_fTabContentStart, 0)
+    requestedTabMinWidth = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabMinWidth, INVALID_WIDTH)
+    requestedTabMaxWidth = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabMaxWidth, INVALID_WIDTH)
+    tabBackgroundResId = a.getResourceId(R.styleable.Custom2markingTabLayout_fTabBackground, 0)
+    contentInsetStart = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabContentStart, 0)
 
-    mode = a.getInt(R.styleable.FuckTabLayout_fTabMode, MODE_FIXED)
-    tabGravity = a.getInt(R.styleable.FuckTabLayout_fTabGravity, GRAVITY_FILL)
-    inlineLabel = a.getBoolean(R.styleable.FuckTabLayout_fTabInlineLabel, false)
-    unboundedRipple = a.getBoolean(R.styleable.FuckTabLayout_fTabUnboundedRipple, false)
+    mode = a.getInt(R.styleable.Custom2markingTabLayout_fTabMode, MODE_FIXED)
+    tabGravity = a.getInt(R.styleable.Custom2markingTabLayout_fTabGravity, GRAVITY_FILL)
+    inlineLabel = a.getBoolean(R.styleable.Custom2markingTabLayout_fTabInlineLabel, false)
+    unboundedRipple = a.getBoolean(R.styleable.Custom2markingTabLayout_fTabUnboundedRipple, false)
     a.recycle()
 
 
@@ -1078,11 +1077,11 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
 
     fun update() {
       if (iv == null) {
-        iv = LayoutInflater.from(context).inflate(R.layout.layout_fuck_tab_icon, this, false) as ImageView
+        iv = LayoutInflater.from(context).inflate(R.layout.layout_tab_icon, this, false) as ImageView
         addView(iv, 0)
       }
       if (tv == null) {
-        tv = LayoutInflater.from(context).inflate(R.layout.layout_fuck_tab_text, this, false) as TextView
+        tv = LayoutInflater.from(context).inflate(R.layout.layout_tab_text, this, false) as TextView
         addView(tv)
         defaultMaxLines = TextViewCompat.getMaxLines(tv!!)
       }
