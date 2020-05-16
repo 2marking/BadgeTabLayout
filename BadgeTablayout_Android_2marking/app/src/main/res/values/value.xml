@@ -1,13 +1,13 @@
 <resources>
-    <dimen name="fuck_tab_scrollable_min_width">72dp</dimen>
-    <dimen name="fuck_tab_max_width">264dp</dimen>
-    <dimen name="fuck_tab_text_size">14sp</dimen>
-    <dimen name="fuck_tab_text_size_2line">12sp</dimen>
+    <dimen name="tab_scrollable_min_width">72dp</dimen>
+    <dimen name="tab_max_width">264dp</dimen>
+    <dimen name="tab_text_size">14sp</dimen>
+    <dimen name="tab_text_size_2line">12sp</dimen>
 
-    <integer name="fuck_tab_indicator_anim_duration_ms">300</integer>
+    <integer name="tab_indicator_anim_duration_ms">300</integer>
     <integer name="mtrl_tab_indicator_anim_duration_ms">250</integer>
 
-    <attr name="fuckTabStyle" format="reference"/>
+    <attr name="tabStyle" format="reference"/>
 
     <declare-styleable name="Custom2markingTabLayout">
         <attr name="fTabIndicatorColor" format="color"/>
@@ -67,18 +67,17 @@
         <attr name="android:layout"/>
     </declare-styleable>
 
-    <style name="Widget.Design.FuckTabLayout" parent="Base.Widget.Design.FuckTabLayout">
+    <style name="Widget.Design.CustomTabLayout" parent="Base.Widget.Design.CustomTabLayout">
         <item name="fTabGravity">fill</item>
         <item name="fTabMode">fixed</item>
         <item name="fTabIndicatorFullWidth">true</item>
     </style>
 
-    <style name="Base.Widget.Design.FuckTabLayout" parent="android:Widget">
+    <style name="Base.Widget.Design.CustomTabLayout" parent="android:Widget">
         <item name="android:background">@null</item>
         <item name="fTabIconTint">@null</item>
-        <item name="fTabMaxWidth">@dimen/fuck_tab_max_width</item>
-        <item name="fTabIndicatorAnimationDuration">@integer/fuck_tab_indicator_anim_duration_ms
-        </item>
+        <item name="fTabMaxWidth">@dimen/tab_max_width</item>
+        <item name="fTabIndicatorAnimationDuration">@integer/tab_indicator_anim_duration_ms</item>
         <item name="fTabIndicatorColor">?attr/colorAccent</item>
         <item name="fTabIndicatorGravity">bottom</item>
         <item name="fTabIndicator">@drawable/mtrl_tabs_default_indicator</item>
@@ -90,14 +89,14 @@
     </style>
 
     <style name="TextAppearance.Design.Tab" parent="TextAppearance.AppCompat.Button">
-        <item name="android:textSize">@dimen/fuck_tab_text_size</item>
+        <item name="android:textSize">@dimen/tab_text_size</item>
         <item name="android:textColor">@color/mtrl_tabs_legacy_text_color_selector</item>
         <item name="textAllCaps">false</item>
         <item name="fontFamily">@null</item>
     </style>
 
-    <style name="TextAppearance.Design.FuckTab" parent="TextAppearance.AppCompat.Button">
-        <item name="android:textSize">@dimen/fuck_tab_text_size</item>
+    <style name="TextAppearance.Design.CustomTab" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textSize">@dimen/tab_text_size</item>
         <item name="android:textColor">@color/mtrl_tabs_legacy_text_color_selector</item>
         <item name="textAllCaps">false</item>>
         <item name="fontFamily">@null</item>

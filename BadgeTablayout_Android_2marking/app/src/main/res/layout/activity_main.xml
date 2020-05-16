@@ -9,7 +9,6 @@
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-
         <com.example.badgetablayout_android_2marking.BadgeTabLayout.Custom2markingTabLayout
             android:id="@+id/ftl_1"
             android:layout_width="match_parent"
@@ -19,12 +18,10 @@
             app:fTabSelectedTextBold="true"
             app:fTabSelectedTextColor="@android:color/black"
             app:fTabTextColor="@android:color/darker_gray"/>
-
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp_1"
             android:layout_width="match_parent"
             android:layout_height="120dp"/>
-
         <com.example.badgetablayout_android_2marking.BadgeTabLayout.Custom2markingTabLayout
             android:id="@+id/ftl_2"
             android:layout_width="match_parent"
@@ -34,12 +31,10 @@
             app:fTabMode="fixed"
             app:fTabSelectedTextColor="@android:color/black"
             app:fTabTextColor="@android:color/darker_gray"/>
-
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp_2"
             android:layout_width="match_parent"
             android:layout_height="120dp"/>
-
         <com.example.badgetablayout_android_2marking.BadgeTabLayout.Custom2markingTabLayout
             android:id="@+id/ftl_3"
             android:layout_width="match_parent"
@@ -49,12 +44,10 @@
             app:fTabMode="auto"
             app:fTabSelectedTextColor="@android:color/black"
             app:fTabTextColor="@android:color/darker_gray"/>
-
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp_3"
             android:layout_width="match_parent"
             android:layout_height="120dp"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

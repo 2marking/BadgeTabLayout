@@ -178,7 +178,7 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
         LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
     )
 
-    val a = ctx.obtainStyledAttributes(attrs, R.styleable.Custom2markingTabLayout, R.attr.fuckTabStyle, R.style.Widget_Design_FuckTabLayout)
+    val a = ctx.obtainStyledAttributes(attrs, R.styleable.Custom2markingTabLayout, R.attr.tabStyle, R.style.Widget_Design_CustomTabLayout)
 
 //     if (background is ColorDrawable) {
 //       val materialShapeDrawable = MaterialShapeDrawable()
@@ -204,7 +204,7 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
     tabPaddingEnd = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabPaddingEnd, tabPaddingEnd)
     tabPaddingBottom = a.getDimensionPixelSize(R.styleable.Custom2markingTabLayout_fTabPaddingBottom, tabPaddingBottom)
 
-    tabTextAppearance = a.getResourceId(R.styleable.Custom2markingTabLayout_fTabTextAppearance, R.style.TextAppearance_Design_FuckTab)
+    tabTextAppearance = a.getResourceId(R.styleable.Custom2markingTabLayout_fTabTextAppearance, R.style.TextAppearance_Design_CustomTab)
 
     val ta = context.obtainStyledAttributes(tabTextAppearance, androidx.appcompat.R.styleable.TextAppearance)
     try {
@@ -251,8 +251,8 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
     a.recycle()
 
 
-    tabTextMultiLineSize = resources.getDimensionPixelSize(R.dimen.fuck_tab_text_size_2line).toFloat()
-    scrollableTabMinWidth = resources.getDimensionPixelSize(R.dimen.fuck_tab_scrollable_min_width)
+    tabTextMultiLineSize = resources.getDimensionPixelSize(R.dimen.tab_text_size_2line).toFloat()
+    scrollableTabMinWidth = resources.getDimensionPixelSize(R.dimen.tab_scrollable_min_width)
 
     applyModeAndGravity()
   }
