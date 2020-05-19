@@ -7,5 +7,4 @@ interface OnTabSelectedListener {
     fun onTabUnselected(tab: Custom2markingTab)
 
     fun onTabReselected(tab: Custom2markingTab)
-
 }

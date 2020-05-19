@@ -55,8 +55,21 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
   private var tabPaddingTop: Int
   private var tabPaddingEnd: Int
   private var tabPaddingBottom: Int
-
   private var tabTextAppearance: Int
+  private var tabRippleColorStateList: ColorStateList? = null
+  private var tabIconTintMode: PorterDuff.Mode?
+  private var tabTextSize: Float
+  private var tabTextMultiLineSize: Float
+  private var tabSelectedTextBold: Boolean
+  private var tabTextIconGap: Int
+  private val tabBackgroundResId: Int
+  private var tabMaxWidth = Integer.MAX_VALUE
+  private val requestedTabMinWidth: Int
+  private val requestedTabMaxWidth: Int
+  private val scrollableTabMinWidth: Int
+  private var contentInsetStart: Int
+  private var tabIndicatorAnimationDuration: Int
+
   var tabTextColors: ColorStateList? = null
     set(value) {
       if (value != field) {
@@ -64,6 +77,7 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
         updateAllTabs()
       }
     }
+
   var tabIconTint: ColorStateList? = null
     set(value) {
       if (value != field) {
@@ -71,7 +85,7 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
         updateAllTabs()
       }
     }
-  private var tabRippleColorStateList: ColorStateList? = null
+
   var tabSelectedIndicator: Drawable? = null
     set(value) {
       if (value != field) {
@@ -80,21 +94,6 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
       }
     }
 
-  private var tabIconTintMode: PorterDuff.Mode?
-  private var tabTextSize: Float
-  private var tabTextMultiLineSize: Float
-  private var tabSelectedTextBold: Boolean
-  private var tabTextIconGap: Int
-
-  private val tabBackgroundResId: Int
-
-  private var tabMaxWidth = Integer.MAX_VALUE
-  private val requestedTabMinWidth: Int
-  private val requestedTabMaxWidth: Int
-  private val scrollableTabMinWidth: Int
-
-  private var contentInsetStart: Int
-
   var tabGravity: Int = GRAVITY_CENTER
     set(value) {
       if (value != field) {
@@ -102,7 +101,7 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
         applyModeAndGravity()
       }
     }
-  private var tabIndicatorAnimationDuration: Int
+
   @TabIndicatorGravity
   var tabIndicatorGravity: Int = INDICATOR_GRAVITY_BOTTOM
     set(value) {
@@ -111,6 +110,7 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
         ViewCompat.postInvalidateOnAnimation(slidingTabIndicator)
       }
     }
+
   @Mode
   var mode: Int = MODE_FIXED
     set(value) {
@@ -119,6 +119,7 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
         applyModeAndGravity()
       }
     }
+
   var inlineLabel: Boolean = false
     set(value) {
       if (value != field) {
@@ -138,11 +139,13 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
       field = value
       ViewCompat.postInvalidateOnAnimation(slidingTabIndicator)
     }
+
   var tabIndicatorFixedWidth: Int = 0
     set(value) {
       field = value
       ViewCompat.postInvalidateOnAnimation(slidingTabIndicator)
     }
+
   var unboundedRipple: Boolean = false
     set(value) {
       if (value != field) {
@@ -158,16 +161,13 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
 
   private val selectedListeners = mutableListOf<OnTabSelectedListener>()
   private var currentVpSelectedListener: OnTabSelectedListener? = null
-
   private var scrollAnimator: ValueAnimator? = null
-
   var viewPager: ViewPager? = null
   private var pagerAdapter: PagerAdapter? = null
   private val pagerAdapterObserver by lazy { PagerAdapterObserver() }
   private val pageChangeListener by lazy { TabLayoutOnPageChangeListener(this) }
   private val adapterChangeListener by lazy { AdapterChangeListener() }
   private var setupViewPagerImplicitly = false
-
   private val tabViewPool = Pools.SimplePool<FuckTabView>(12)
 
   init {
@@ -1547,7 +1547,6 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
   }
 
   class ViewPagerOnTabSelectedListener(private val viewPager: ViewPager) : OnTabSelectedListener {
-
     override fun onTabReselected(tab: Custom2markingTab) {}
 
     override fun onTabSelected(tab: Custom2markingTab) {
@@ -1558,7 +1557,6 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
   }
 
   private inner class PagerAdapterObserver : DataSetObserver() {
-
     override fun onChanged() {
       populateFromPagerAdapter()
     }
@@ -1569,7 +1567,6 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
   }
 
   private inner class AdapterChangeListener(var autoRefresh: Boolean = false) : ViewPager.OnAdapterChangeListener {
-
     override fun onAdapterChanged(viewPager: ViewPager, oldAdapter: PagerAdapter?, newAdapter: PagerAdapter?) {
       if (this@Custom2markingTabLayout.viewPager == viewPager) {
         setPagerAdapter(newAdapter, autoRefresh)
@@ -1638,5 +1635,4 @@ class Custom2markingTabLayout(ctx: Context, attrs: AttributeSet) : HorizontalScr
 
     private val tabPool = Pools.SynchronizedPool<Custom2markingTab>(16)
   }
-
 }

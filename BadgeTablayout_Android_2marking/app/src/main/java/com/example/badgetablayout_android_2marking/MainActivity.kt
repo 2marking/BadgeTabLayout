@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         ftl_2.addNumberBadge(3, 1000)
 
         ftl_2.addBadge(4, object : Badge(Color.RED) {
-
             override fun getMeasureWidth(): Int = 20
 
             override fun getMeasureHeight(): Int = 20

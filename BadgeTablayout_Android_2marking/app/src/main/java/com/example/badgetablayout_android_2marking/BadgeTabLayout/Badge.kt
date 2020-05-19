@@ -79,5 +79,4 @@ class NumberBadge(color: Int, private val textColor: Int, private val textSize: 
                 number!! > 999 -> "999+"
                 else -> ""
             }
-
 }
